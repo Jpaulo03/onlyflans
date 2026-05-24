@@ -5,8 +5,8 @@ import Favorito from './Favorito.js';
 import Donacion from './Donacion.js';
 import Comentario from './Comentario.js';
 
-Usuario.hasMany(Post, { foreignkey: 'creador_id'});
-Post.belongsTo(Usuario, {fereignKey: 'creador_id'});
+Usuario.hasMany(Post, { foreignKey: 'creador_id'});
+Post.belongsTo(Usuario, {foreignKey: 'creador_id'});
 
 Usuario.hasMany(Meta, {foreignKey: 'creador_id'});
 Meta.belongsTo(Usuario, {foreignKey: 'creador_id'});

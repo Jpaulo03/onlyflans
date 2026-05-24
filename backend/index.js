@@ -1,12 +1,17 @@
 import express from 'express';
 import sequelize from './config/database.js';
-import Usuario from './models/Usuario.js';
 import './models/asociaciones.js';
+import usuarioRoutes from './routes/usuario.routes.js';
+import postRoutes from './routes/post.routes.js';
+
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+
+app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/posts', postRoutes); 
 
 app.get('/', (req, res) => {
     res.send('Hola mundo desde el backend!');
