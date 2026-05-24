@@ -1,4 +1,4 @@
-import { Post, Comentario, Usuario } from '../models/asociaciones.js';
+import { Post, Comentario, Usuario, Favorito } from '../models/asociaciones.js';
 
 export async function crearPost(req, res) {
   try {
@@ -48,6 +48,30 @@ export async function verPost(req, res) {
     }
 
     res.json(post);
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
+  }
+}
+
+export async function feedSeguidor(req, res) {
+  try {
+    const favoritos = await Favorito.findAll({
+      where: { seguidor_id: req.usuario.id },
+    });
+
+    const idsCreadores = favoritos.map((f) => f.creador_id);
+
+    if (idsCreadores.length === 0) {
+      return res.json([]);
+    }
+
+    const posts = await Post.findAll({
+      where: { creador_id: idsCreadores },
+      include: [{ model: Usuario, attributes: ['id', 'nombre', 'foto'] }],
+      order: [['createdAt', 'DESC']],
+    });
+
+    res.json(posts);
   } catch (error) {
     res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
   }

@@ -14,8 +14,8 @@ Meta.belongsTo(Usuario, {foreignKey: 'creador_id'});
 Post.hasMany(Comentario, {foreignKey: 'post_id'});
 Comentario.belongsTo(Post, {foreignKey: 'post_id'});
 
-Usuario.hasMany(Comentario, {foreignKey: 'seguidor_id'});
-Comentario.belongsTo(Usuario, {foreignKey: 'seguidor_id'});
+Usuario.hasMany(Comentario, { foreignKey: 'seguidor_id', as: 'comentarios' });
+Comentario.belongsTo(Usuario, { foreignKey: 'seguidor_id', as: 'seguidor' });
 
 Usuario.hasMany(Donacion, { foreignKey: 'seguidor_id', as: 'donacionesEnviadas' });
 Usuario.hasMany(Donacion, { foreignKey: 'creador_id', as: 'donacionesRecibidas' });

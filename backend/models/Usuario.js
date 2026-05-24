@@ -19,7 +19,15 @@ const Usuario = sequelize.define('Usuario', {
     rol: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
+    foto: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    },
+    banner: {
+    type: DataTypes.STRING,
+    allowNull: true, 
+    },
 }, {
     tableName: 'usuarios'
 });

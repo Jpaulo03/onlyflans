@@ -1,4 +1,5 @@
 import { Usuario } from '../models/asociaciones.js';
+import { Op } from 'sequelize'; 
 import { sha1Encode } from '../utils/text.utils.js';
 import { generateToken  } from '../utils/jwt.utils.js';
 import { esquemaRegistro  } from '../utils/validaciones.js';
@@ -64,6 +65,70 @@ export async function login(req, res) {
       token,
       usuario: { id: usuario.id, nombre: usuario.nombre, rol: usuario.rol },
     });
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
+  }
+}
+
+export async function actualizarPerfil(req, res) {
+  try {
+    const { nombre, foto, banner } = req.body;
+
+    const usuario = await Usuario.findByPk(req.usuario.id);
+    if (!usuario) {
+      return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+    }
+
+    if (nombre) usuario.nombre = nombre;
+    if (foto) usuario.foto = foto;
+    if (banner) usuario.banner = banner;
+
+    await usuario.save();
+
+    res.json({
+      mensaje: 'Perfil actualizado',
+      usuario: { id: usuario.id, nombre: usuario.nombre, foto: usuario.foto, banner: usuario.banner },
+    });
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
+  }
+}
+
+export async function verPerfilCreador(req, res) {
+  try {
+    const { id } = req.params;
+
+    const creador = await Usuario.findByPk(id, {
+      attributes: ['id', 'nombre', 'foto', 'banner', 'rol'],
+    });
+
+    if (!creador || creador.rol !== 'creador') {
+      return res.status(404).json({ mensaje: 'Creador no encontrado' });
+    }
+
+    res.json(creador);
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
+  }
+}
+
+export async function listarCreadores(req, res) {
+  try {
+    const { buscar } = req.query;
+
+    const condiciones = { rol: 'creador' };
+
+    if (buscar) {
+      condiciones.nombre = { [Op.like]: `%${buscar}%` };
+    }
+
+    const creadores = await Usuario.findAll({
+      where: condiciones,
+      attributes: ['id', 'nombre', 'foto', 'banner'],
+      order: [['nombre', 'ASC']],
+    });
+
+    res.json(creadores);
   } catch (error) {
     res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
   }
