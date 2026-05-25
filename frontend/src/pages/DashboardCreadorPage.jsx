@@ -234,9 +234,9 @@ function DashboardCreadorPage() {
   return (
     <section className="container py-5">
       <div className="mb-4">
-        <h1 className="fw-bold text-primary">Panel del creador</h1>
+        <h1 className="fw-bold text-primary">Mi Perfil</h1>
         <p className="text-muted">
-          Bienvenido, {usuarioGuardado?.nombre}. Desde aquí puedes administrar
+          Bienvenido, {usuarioGuardado?.nombre}. Administra
           tu perfil, tus metas, tus publicaciones, los comentarios recibidos y
           tus ingresos.
         </p>
@@ -526,26 +526,17 @@ function DashboardCreadorPage() {
                 <>
                   <div className="row mb-4">
                     <div className="col-md-6 mb-3">
-                      <div className="border rounded p-3 bg-warning-subtle">
-                        <h5>Total de flanes recibidos</h5>
-                        <h2 className="fw-bold mb-0">
+                      <div className="border rounded p-3 bg-info-subtle">
+                        <h5 className="text-info">Total de flanes recibidos</h5>
+                        <h2 className="fw-bold mb-0 text-info">
                           {reporteIngresos.totalFlanes}
-                        </h2>
-                      </div>
-                    </div>
-
-                    <div className="col-md-6 mb-3">
-                      <div className="border rounded p-3 bg-light">
-                        <h5>Cantidad de donaciones</h5>
-                        <h2 className="fw-bold mb-0">
-                          {reporteIngresos.cantidadDonaciones}
                         </h2>
                       </div>
                     </div>
                   </div>
 
                   {reporteIngresos.historial.length === 0 && (
-                    <div className="alert alert-warning">
+                    <div className="alert alert-primary">
                       No hay donaciones en el rango seleccionado.
                     </div>
                   )}
@@ -583,7 +574,7 @@ function DashboardCreadorPage() {
               )}
 
               {!reporteIngresos && !cargandoReporte && (
-                <div className="alert alert-warning">
+                <div className="alert alert-info">
                   Usa el botón Generar reporte para ver tus ingresos.
                 </div>
               )}

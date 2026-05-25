@@ -43,9 +43,7 @@ function AppNavbar() {
               Inicio
             </Link>
 
-            <Link to="/creadores" className={esActivo('/creadores')}>
-              Creadores
-            </Link>
+            
 
             {!usuario && (
               <>
@@ -66,7 +64,7 @@ function AppNavbar() {
                     to="/panel-creador"
                     className={esActivo('/panel-creador')}
                   >
-                    Panel creador
+                    Mi Perfil
                   </Link>
                 )}
 
@@ -75,20 +73,16 @@ function AppNavbar() {
                     to="/panel-seguidor"
                     className={esActivo('/panel-seguidor')}
                   >
-                    Panel seguidor
+                    Siguiendo
                   </Link>
+                  
                 )}
 
-                <div className="usuario-mini">
-                  <div className="usuario-avatar">
-                    {usuario.nombre?.charAt(0).toUpperCase()}
-                  </div>
-
-                  <div className="usuario-info">
-                    <strong>{usuario.nombre}</strong>
-                    <small>{usuario.rol}</small>
-                  </div>
-                </div>
+                {usuario.rol === 'seguidor' && (
+                  <Link to="/creadores" className={esActivo('/creadores')}>
+                    Descubrir creadores
+                  </Link>
+                )}
 
                 <button
                   type="button"

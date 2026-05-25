@@ -153,7 +153,7 @@ function CreadoresPage() {
 
                 <Link
                   to={`/creadores/${creador.id}`}
-                  className="btn btn-outline-warning w-100 mt-3"
+                  className="btn btn-outline-success w-100 mt-3"
                 >
                   Ver perfil
                 </Link>

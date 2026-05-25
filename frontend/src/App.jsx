@@ -20,7 +20,7 @@ function InicioPage() {
           </h1>
 
           <p className="lead mt-3">
-            Apoya a tus creadores favoritos comprándoles flanes simbólicos.
+            Apoya a tus creadores favoritos donándoles flanes.
           </p>
 
           <div className="d-flex gap-3 mt-4">

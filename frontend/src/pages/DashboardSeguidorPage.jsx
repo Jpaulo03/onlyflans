@@ -185,10 +185,9 @@ function DashboardSeguidorPage() {
   return (
     <section className="container py-5">
       <div className="mb-4">
-        <h1 className="fw-bold text-primary">Panel del seguidor</h1>
+        <h1 className="fw-bold text-primary">Feed de publicaciones</h1>
         <p className="text-muted">
-          Bienvenido, {usuarioGuardado?.nombre}. Aquí puedes ver publicaciones,
-          favoritos, comentarios e historial de donaciones.
+          Bienvenido, {usuarioGuardado?.nombre}.
         </p>
       </div>
 
@@ -235,7 +234,7 @@ function DashboardSeguidorPage() {
                       />
                     ) : (
                       <div
-                        className="rounded-circle bg-warning-subtle d-flex align-items-center justify-content-center me-2"
+                        className="rounded-circle bg-warning-subtle d-flex align-items-center justify-content-center me-2 ms-2"
                         style={{ width: '42px', height: '42px' }}
                       >
                         <a href={`/creadores/${post.Usuario.id}`}>
@@ -247,7 +246,7 @@ function DashboardSeguidorPage() {
                     <div>
                       <strong>{post.Usuario?.nombre || 'Creador'}</strong>
                       <br />
-                      <small className="text-muted">
+                      <small className="text-muted ms-3">
                         {new Date(post.createdAt).toLocaleString()}
                       </small>
                     </div>
