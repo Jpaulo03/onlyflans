@@ -1,5 +1,7 @@
 import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
+import AppNavbar from './components/AppNavbar';
+
 import LoginPage from './pages/LoginPage';
 import RegistroPage from './pages/RegistroPage';
 import CreadoresPage from './pages/CreadoresPage';
@@ -53,63 +55,7 @@ function App() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
-        <div className="container">
-          <Link to="/" className="navbar-brand fw-bold text-warning">
-            OnlyFlans
-          </Link>
-
-          <div className="navbar-nav ms-auto gap-2 align-items-center">
-            <Link to="/" className="nav-link">
-              Inicio
-            </Link>
-
-            <Link to="/creadores" className="nav-link">
-              Creadores
-            </Link>
-
-            {!usuario && (
-              <>
-                <Link to="/login" className="nav-link">
-                  Iniciar sesión
-                </Link>
-
-                <Link to="/registro" className="btn btn-warning">
-                  Registrarse
-                </Link>
-              </>
-            )}
-
-            {usuario && (
-              <>
-                {usuario.rol === 'creador' && (
-                  <Link to="/panel-creador" className="nav-link">
-                    Panel creador
-                  </Link>
-                )}
-
-                {usuario.rol === 'seguidor' && (
-                  <Link to="/panel-seguidor" className="nav-link">
-                    Panel seguidor
-                  </Link>
-                )}
-
-                <span className="badge text-bg-light">
-                  {usuario.nombre} - {usuario.rol}
-                </span>
-
-                <button
-                  type="button"
-                  className="btn btn-outline-danger btn-sm"
-                  onClick={cerrarSesion}
-                >
-                  Cerrar sesión
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      </nav>
+      <AppNavbar />
 
       <Routes>
         <Route path="/" element={<InicioPage />} />
