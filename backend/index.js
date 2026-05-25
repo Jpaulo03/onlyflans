@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import sequelize from './config/database.js';
 import './models/asociaciones.js';
@@ -12,6 +13,7 @@ import favoritoRoutes from './routes/favorito.routes.js';
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/usuarios', usuarioRoutes);
