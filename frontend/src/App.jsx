@@ -1,4 +1,4 @@
-import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 import AppNavbar from './components/AppNavbar';
 
@@ -42,16 +42,6 @@ function InicioPage() {
 }
 
 function App() {
-  useLocation();
-
-  const navigate = useNavigate();
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
-
-  const cerrarSesion = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-    navigate('/login');
-  };
 
   return (
     <>

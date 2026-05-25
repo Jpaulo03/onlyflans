@@ -6,7 +6,7 @@ function AppNavbar() {
 
   const usuario = JSON.parse(localStorage.getItem('usuario') || 'null');
 
-  const cerrarSesion = () => {
+  const cerrarSesion = () => { 
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
     navigate('/login');
@@ -17,13 +17,11 @@ function AppNavbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg app-navbar sticky-top">
+    <nav className="navbar navbar-expand-lg app-navbar sticky-top bg-light">
       <div className="container">
         <Link to="/" className="navbar-brand brand-logo">
-          <span className="brand-icon">🍮</span>
           <div>
             <strong>OnlyFlans</strong>
-            <small>Apoya creadores</small>
           </div>
         </Link>
 
