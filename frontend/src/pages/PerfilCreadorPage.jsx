@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../api/api';
 
+import Avatar from '../components/Avatar';
+import Banner from '../components/Banner';
+
 function PerfilCreadorPage() {
   const { id } = useParams(); 
 
@@ -101,21 +104,12 @@ function PerfilCreadorPage() {
       )}
 
       <div className="card shadow-sm border-0 mb-4">
-        {creador?.banner ? (
-          <img
-            src={creador.banner}
-            alt={`Banner de ${creador.nombre}`}
-            className="card-img-top"
-            style={{ height: '240px', objectFit: 'cover' }}
-          />
-        ) : (
-          <div
-            className="bg-primary-subtle d-flex align-items-center justify-content-center"
-            style={{ height: '240px' }}
-          >
-            <span className="text-muted">Sin banner</span>
-          </div>
-        )}
+        <Banner
+          src={creador?.banner}
+          nombre={creador?.nombre}
+          height={240}
+          className="card-img-top"
+        />
 
         <div className="card-body text-center">
           {creador?.foto ? (
@@ -142,7 +136,7 @@ function PerfilCreadorPage() {
                 fontSize: '40px',
               }}
             >
-              👤
+              <Avatar src={creador.foto} nombre={creador.nombre} size={80} />
             </div>
           )}
 

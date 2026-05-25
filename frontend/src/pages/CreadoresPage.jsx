@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/api';
+import Avatar from '../components/Avatar';
+import Banner from '../components/Banner';
 
 function CreadoresPage() {
   const [creadores, setCreadores] = useState([]);
@@ -112,21 +114,12 @@ function CreadoresPage() {
         {creadores.map((creador) => (
           <div className="col-md-4 mb-4" key={creador.id}>
             <div className="card shadow-sm border-0 h-100">
-              {creador.banner ? (
-                <img
-                  src={creador.banner}
-                  className="card-img-top"
-                  alt={`Banner de ${creador.nombre}`}
-                  style={{ height: '140px', objectFit: 'cover' }}
-                />
-              ) : (
-                <div
-                  className="bg-warning-subtle d-flex align-items-center justify-content-center"
-                  style={{ height: '140px' }}
-                >
-                  <span className="text-muted">Sin banner</span>
-                </div>
-              )}
+              <Banner
+                src={creador.banner}
+                nombre={creador.nombre}
+                height={140}
+                className="card-img-top"
+              />
 
               <div className="card-body text-center">
                 {creador.foto ? (
@@ -152,7 +145,7 @@ function CreadoresPage() {
                       border: '4px solid white',
                     }}
                   >
-                    👤
+                    <Avatar src={creador.foto} nombre={creador.nombre} size={80} />
                   </div>
                 )}
 

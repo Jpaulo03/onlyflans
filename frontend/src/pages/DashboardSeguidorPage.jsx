@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import api from '../api/api';
 
+import Avatar from '../components/Avatar';
+
 function DashboardSeguidorPage() {
   const [usuarioGuardado] = useState(() =>
     JSON.parse(localStorage.getItem('usuario') || 'null')
@@ -236,7 +238,9 @@ function DashboardSeguidorPage() {
                         className="rounded-circle bg-warning-subtle d-flex align-items-center justify-content-center me-2"
                         style={{ width: '42px', height: '42px' }}
                       >
-                        👤
+                        <a href={`/creadores/${post.Usuario.id}`}>
+                          <Avatar src={post.Usuario?.foto} nombre={post.Usuario?.nombre || 'Creador'} size={80} />
+                        </a>
                       </div>
                     )}
 
@@ -307,7 +311,9 @@ function DashboardSeguidorPage() {
 
               {favoritos.map((favorito) => (
                 <div className="border rounded p-3 mb-3" key={favorito.id}>
-                  <h5>{favorito.creador?.nombre}</h5>
+                  <a href={`/creadores/${favorito.creador_id}`} className= "text-decoration-none text-dark">
+                    <h5>{favorito.creador?.nombre}</h5>
+                  </a>
 
                   <button
                     type="button"

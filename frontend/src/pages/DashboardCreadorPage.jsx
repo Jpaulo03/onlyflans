@@ -288,7 +288,7 @@ function DashboardCreadorPage() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-warning w-100">
+                <button type="submit" className="btn btn-success w-100">
                   Guardar perfil
                 </button>
               </form>
@@ -324,7 +324,7 @@ function DashboardCreadorPage() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-warning">
+                <button type="submit" className="btn btn-primary">
                   Crear meta
                 </button>
               </form>
@@ -355,7 +355,7 @@ function DashboardCreadorPage() {
 
                   <button
                     type="button"
-                    className="btn btn-outline-danger btn-sm"
+                    className="btn btn-danger btn-sm"
                     onClick={() => eliminarMeta(meta.id)}
                   >
                     Eliminar
@@ -396,7 +396,7 @@ function DashboardCreadorPage() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-warning w-100">
+                <button type="submit" className="btn btn-primary w-100">
                   Publicar
                 </button>
               </form>
@@ -512,7 +512,7 @@ function DashboardCreadorPage() {
                 </div>
 
                 <div className="col-md-4 d-flex align-items-end">
-                  <button type="submit" className="btn btn-warning w-100">
+                  <button type="submit" className="btn btn-primary w-100">
                     Generar reporte
                   </button>
                 </div>
