@@ -14,11 +14,8 @@ function InicioPage() {
     <section className="container py-5">
       <div className="row align-items-center">
         <div className="col-md-7">
-          <span className="badge text-bg-warning mb-3">
-            Plataforma para apoyar creadores
-          </span>
 
-          <h1 className="display-4 fw-bold text-warning-emphasis">
+          <h1 className="display-4 fw-bold text-primary">
             Bienvenido a OnlyFlans
           </h1>
 
@@ -27,11 +24,11 @@ function InicioPage() {
           </p>
 
           <div className="d-flex gap-3 mt-4">
-            <Link to="/registro" className="btn btn-warning btn-lg">
+            <Link to="/registro" className="btn btn-primary btn-lg">
               Crear cuenta
             </Link>
 
-            <Link to="/creadores" className="btn btn-outline-warning btn-lg">
+            <Link to="/creadores" className="btn btn-outline-primary btn-lg">
               Ver creadores
             </Link>
           </div>

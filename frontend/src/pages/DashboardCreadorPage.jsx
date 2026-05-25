@@ -234,7 +234,7 @@ function DashboardCreadorPage() {
   return (
     <section className="container py-5">
       <div className="mb-4">
-        <h1 className="fw-bold text-warning-emphasis">Panel del creador</h1>
+        <h1 className="fw-bold text-primary">Panel del creador</h1>
         <p className="text-muted">
           Bienvenido, {usuarioGuardado?.nombre}. Desde aquí puedes administrar
           tu perfil, tus metas, tus publicaciones, los comentarios recibidos y

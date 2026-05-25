@@ -47,7 +47,7 @@ function LoginPage() {
         <div className="col-md-5">
           <div className="card shadow-sm border-0">
             <div className="card-body p-4">
-              <h2 className="text-center mb-4">Iniciar sesión</h2>
+              <h2 className="text-center mb-4 text-primary">Iniciar sesión</h2>
 
               {mensajeError && (
                 <div className="alert alert-danger">{mensajeError}</div>
@@ -78,7 +78,7 @@ function LoginPage() {
 
                 <button
                   type="submit"
-                  className="btn btn-warning w-100"
+                  className="btn btn-primary w-100"
                   disabled={cargando}
                 >
                   {cargando ? 'Ingresando...' : 'Entrar'}

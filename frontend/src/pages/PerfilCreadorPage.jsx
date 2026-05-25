@@ -110,7 +110,7 @@ function PerfilCreadorPage() {
           />
         ) : (
           <div
-            className="bg-warning-subtle d-flex align-items-center justify-content-center"
+            className="bg-primary-subtle d-flex align-items-center justify-content-center"
             style={{ height: '240px' }}
           >
             <span className="text-muted">Sin banner</span>
@@ -146,12 +146,12 @@ function PerfilCreadorPage() {
             </div>
           )}
 
-          <h1 className="fw-bold">{creador?.nombre}</h1>
+          <h1 className="fw-bold text-primary">{creador?.nombre}</h1>
           <p className="text-muted">Creador de contenido en OnlyFlans</p>
 
           <button
             type="button"
-            className="btn btn-outline-warning"
+            className="btn btn-outline-primary"
             onClick={agregarFavorito}
           >
             Marcar como favorito
@@ -201,7 +201,7 @@ function PerfilCreadorPage() {
 
               <button
                 type="button"
-                className="btn btn-warning w-100"
+                className="btn btn-primary w-100"
                 onClick={enviarFlanes}
               >
                 Enviar flanes

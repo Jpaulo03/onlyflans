@@ -21,7 +21,7 @@ function AppNavbar() {
       <div className="container">
         <Link to="/" className="navbar-brand brand-logo">
           <div>
-            <strong>OnlyFlans</strong>
+            <strong className="text-primary">OnlyFlans</strong>
           </div>
         </Link>
 
@@ -53,7 +53,7 @@ function AppNavbar() {
                   Iniciar sesión
                 </Link>
 
-                <Link to="/registro" className="btn btn-warning btn-sm px-3">
+                <Link to="/registro" className="btn btn-primary btn-sm px-3">
                   Crear cuenta
                 </Link>
               </>

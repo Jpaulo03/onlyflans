@@ -183,7 +183,7 @@ function DashboardSeguidorPage() {
   return (
     <section className="container py-5">
       <div className="mb-4">
-        <h1 className="fw-bold text-warning-emphasis">Panel del seguidor</h1>
+        <h1 className="fw-bold text-primary">Panel del seguidor</h1>
         <p className="text-muted">
           Bienvenido, {usuarioGuardado?.nombre}. Aquí puedes ver publicaciones,
           favoritos, comentarios e historial de donaciones.
@@ -278,7 +278,7 @@ function DashboardSeguidorPage() {
 
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-sm"
+                      className="btn btn-outline-primary btn-sm"
                       onClick={() => enviarComentario(post.id)}
                     >
                       Enviar comentario
@@ -327,7 +327,7 @@ function DashboardSeguidorPage() {
         <div className="col-12">
           <div className="card shadow-sm border-0">
             <div className="card-body">
-              <h3 className="mb-3">Historial de donaciones</h3>
+              <h3 className="mb-3 text-primary">Historial de donaciones</h3>
 
               <form
                 className="row g-3 mb-4"
@@ -365,7 +365,7 @@ function DashboardSeguidorPage() {
                 </div>
 
                 <div className="col-md-2 d-flex align-items-end">
-                  <button type="submit" className="btn btn-warning w-100">
+                  <button type="submit" className="btn btn-primary w-100">
                     Filtrar
                   </button>
                 </div>

@@ -66,7 +66,7 @@ function CreadoresPage() {
   return (
     <section className="container py-5">
       <div className="mb-4">
-        <h1 className="fw-bold text-warning-emphasis">Creadores</h1>
+        <h1 className="fw-bold text-primary">Creadores</h1>
         <p className="text-muted">
           Explora creadores y entra a sus perfiles para apoyarlos con flanes.
         </p>
@@ -84,7 +84,7 @@ function CreadoresPage() {
         </div>
 
         <div className="col-md-2">
-          <button type="submit" className="btn btn-warning w-100">
+          <button type="submit" className="btn btn-primary w-100">
             Buscar
           </button>
         </div>

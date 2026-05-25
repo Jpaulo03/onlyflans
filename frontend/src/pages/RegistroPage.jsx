@@ -51,7 +51,7 @@ function RegistroPage() {
         <div className="col-md-5">
           <div className="card shadow-sm border-0">
             <div className="card-body p-4">
-              <h2 className="text-center mb-4">Crear cuenta</h2>
+              <h2 className="text-center mb-4 text-primary">Crear cuenta</h2>
 
               {mensajeError && (
                 <div className="alert alert-danger">{mensajeError}</div>
@@ -105,7 +105,7 @@ function RegistroPage() {
 
                 <button
                   type="submit"
-                  className="btn btn-warning w-100"
+                  className="btn btn-primary w-100"
                   disabled={cargando}
                 >
                   {cargando ? 'Registrando...' : 'Registrarme'}
